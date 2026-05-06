@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aadesh Sangraula — Aspirant Software Developer. BSc Earth Science & Computer Science. Personal portfolio with projects, skills and contact." />
+  <meta name="keywords" content="Aadesh Sangraula, software developer, portfolio, earth science, computer science" />
+  <meta name="author" content="Aadesh Sangraula" />
+  <title>Aadesh Sangraula | Software Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== LOADING SCREEN ========== -->
+  <div id="loader" aria-hidden="true">
+    <canvas id="loader-canvas"></canvas>
+    <div class="loader-content">
+      <div class="loader-planet"></div>
+      <p class="loader-text">Entering the Universe<span class="loader-dots"></span></p>
+    </div>
+  </div>
+
+  <!-- ========== CUSTOM CURSOR ========== -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-trail" aria-hidden="true"></div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Home">
+        <span class="logo-bracket">&lt;</span>AS<span class="logo-bracket">/&gt;</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section id="hero" aria-label="Hero section">
+    <!-- Background canvas for animated stars -->
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <!-- Nebula blobs -->
+    <div class="nebula nebula-1" aria-hidden="true"></div>
+    <div class="nebula nebula-2" aria-hidden="true"></div>
+    <div class="nebula nebula-3" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-greeting reveal-up">Hello, I'm</p>
+      <h1 class="hero-name reveal-up">Aadesh Sangraula</h1>
+      <div class="hero-title-wrapper reveal-up">
+        <span class="hero-title-prefix">I'm a&nbsp;</span>
+        <span id="typed-text" class="hero-typed" aria-live="polite"></span>
+        <span class="hero-cursor-blink" aria-hidden="true">|</span>
+      </div>
+      <p class="hero-tagline reveal-up">
+        Bridging the cosmos of <em>Earth Science</em> &amp; <em>Computer Science</em><br />
+        — building software that reaches for the stars.
+      </p>
+      <div class="hero-buttons reveal-up">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-rocket" aria-hidden="true"></i> View My Work
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-satellite-dish" aria-hidden="true"></i> Get in Touch
+        </a>
+        <a href="assets/resume.pdf" class="btn btn-ghost" download aria-label="Download Resume">
+          <i class="fas fa-download" aria-hidden="true"></i> Resume
+        </a>
+      </div>
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+
+    <!-- Floating planets -->
+    <div class="planet planet-1" aria-hidden="true"></div>
+    <div class="planet planet-2" aria-hidden="true"></div>
+    <div class="planet planet-3" aria-hidden="true"></div>
+  </section>
+
+  <!-- ========== ABOUT SECTION ========== -->
+  <section id="about" class="section" aria-label="About me">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">// about me</span>
+        <h2 class="section-title">Who Am I?</h2>
+        <p class="section-subtitle">A curious explorer of both the physical and digital universe.</p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Profile card -->
+        <div class="about-image-wrapper reveal-left">
+          <div class="about-image-frame">
+            <div class="about-avatar" aria-label="Profile avatar">
+              <span class="avatar-initials">AS</span>
+              <div class="avatar-ring avatar-ring-1"></div>
+              <div class="avatar-ring avatar-ring-2"></div>
+              <div class="avatar-ring avatar-ring-3"></div>
+            </div>
+            <div class="about-badge">
+              <i class="fas fa-code" aria-hidden="true"></i>
+              <span>Open to Work</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- About text -->
+        <div class="about-text reveal-right">
+          <p class="about-intro">
+            Hi! I'm <strong>Aadesh Sangraula</strong>, an aspirant software developer with a unique
+            dual academic background in <strong>Earth Science</strong> and
+            <strong>Computer Science</strong>. I blend analytical thinking from geoscience
+            with modern software engineering to create impactful digital experiences.
+          </p>
+          <p class="about-body">
+            My journey spans understanding planetary systems and writing code that
+            solves real-world problems. I'm passionate about clean architecture,
+            intuitive UIs, and bringing ideas from concept to deployment.
+          </p>
+
+          <!-- Info chips -->
+          <div class="about-info-chips">
+            <div class="info-chip">
+              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+              <span>BSc Earth Science</span>
+            </div>
+            <div class="info-chip">
+              <i class="fas fa-laptop-code" aria-hidden="true"></i>
+              <span>BSc Computer Science</span>
+            </div>
+            <div class="info-chip">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>Nepal</span>
+            </div>
+            <div class="info-chip">
+              <i class="fas fa-language" aria-hidden="true"></i>
+              <span>English · Nepali</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="about-stats reveal-up">
+        <div class="stat-card">
+          <span class="stat-number" data-target="2">0</span>
+          <span class="stat-label">Degrees</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="10">0</span>
+          <span class="stat-label">Projects Built</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="8">0</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="100">0</span>
+          <span class="stat-label">% Passion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS SECTION ========== -->
+  <section id="projects" class="section section-alt" aria-label="Projects">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">// projects</span>
+        <h2 class="section-title">My Missions</h2>
+        <p class="section-subtitle">A selection of projects I've launched into the digital cosmos.</p>
+      </div>
+
+      <!-- Filter buttons -->
+      <div class="project-filters reveal-up" role="group" aria-label="Filter projects by technology">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="python">Python</button>
+        <button class="filter-btn" data-filter="data">Data</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card reveal-up" data-category="web" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-image-placeholder project-img-1">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="Live demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="project-tag">React</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">MongoDB</span>
+              </div>
+              <h3 class="project-title">GeoData Explorer</h3>
+              <p class="project-desc">
+                A full-stack web application for visualising geospatial datasets. Integrates REST APIs, interactive maps, and real-time data filtering for earth science research.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card reveal-up" data-category="python" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-image-placeholder project-img-2">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="Live demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Pandas</span>
+                <span class="project-tag">Matplotlib</span>
+              </div>
+              <h3 class="project-title">Climate Pattern Analyser</h3>
+              <p class="project-desc">
+                Python-based data pipeline that processes historical climate datasets, identifies anomaly patterns, and generates publication-ready visualisation reports.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card reveal-up" data-category="web" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-image-placeholder project-img-3">
+                <i class="fas fa-tasks"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="Live demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+              </div>
+              <h3 class="project-title">Task Commander</h3>
+              <p class="project-desc">
+                A sleek task management web app with drag-and-drop boards, priority tagging, due-date reminders, and local storage persistence.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card reveal-up" data-category="data" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-image-placeholder project-img-4">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="Live demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="project-tag">SQL</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Tableau</span>
+              </div>
+              <h3 class="project-title">Earthquake Analytics Dashboard</h3>
+              <p class="project-desc">
+                End-to-end data analytics project: ETL pipeline, relational database design, and an interactive Tableau dashboard for seismic activity worldwide.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card reveal-up" data-category="web" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-image-placeholder project-img-5">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="Live demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="project-tag">Next.js</span>
+                <span class="project-tag">Tailwind</span>
+                <span class="project-tag">Stripe</span>
+              </div>
+              <h3 class="project-title">EcoShop</h3>
+              <p class="project-desc">
+                A sustainable e-commerce platform featuring product listings, cart management, Stripe payment integration, and an admin dashboard.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card reveal-up" data-category="python" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-image" aria-hidden="true">
+              <div class="project-image-placeholder project-img-6">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="Live demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">scikit-learn</span>
+                <span class="project-tag">Flask</span>
+              </div>
+              <h3 class="project-title">Landslide Risk Predictor</h3>
+              <p class="project-desc">
+                Machine learning model that predicts landslide susceptibility zones using terrain, rainfall, and geological feature data, served via a REST API.
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- end projects-grid -->
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE / EDUCATION SECTION ========== -->
+  <section id="experience" class="section" aria-label="Experience and education">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">// journey</span>
+        <h2 class="section-title">My Trajectory</h2>
+        <p class="section-subtitle">The academic and professional orbit that shaped me.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="timeline-tabs reveal-up" role="tablist" aria-label="Experience or Education">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-education" id="btn-education" data-tab="education">
+          <i class="fas fa-graduation-cap" aria-hidden="true"></i> Education
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-experience" id="btn-experience" data-tab="experience">
+          <i class="fas fa-briefcase" aria-hidden="true"></i> Experience
+        </button>
+      </div>
+
+      <!-- Education Timeline -->
+      <div class="timeline" id="tab-education" role="tabpanel" aria-labelledby="btn-education">
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2021 – Present</span>
+            <h3 class="timeline-title">Bachelor of Science — Computer Science</h3>
+            <p class="timeline-org"><i class="fas fa-university" aria-hidden="true"></i> Tribhuvan University, Nepal</p>
+            <p class="timeline-desc">
+              Pursuing a comprehensive curriculum covering data structures, algorithms, database management, web development, operating systems, and software engineering principles.
+            </p>
+            <div class="timeline-tags">
+              <span>Algorithms</span><span>Databases</span><span>Web Dev</span><span>OS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2018 – 2021</span>
+            <h3 class="timeline-title">Bachelor of Science — Earth Science</h3>
+            <p class="timeline-org"><i class="fas fa-university" aria-hidden="true"></i> Tribhuvan University, Nepal</p>
+            <p class="timeline-desc">
+              Studied geology, physical geography, environmental science, geophysics, and remote sensing. Developed strong analytical and research skills through field studies.
+            </p>
+            <div class="timeline-tags">
+              <span>Geology</span><span>Remote Sensing</span><span>GIS</span><span>Research</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2016 – 2018</span>
+            <h3 class="timeline-title">Higher Secondary Education (Science)</h3>
+            <p class="timeline-org"><i class="fas fa-school" aria-hidden="true"></i> Higher Secondary School, Nepal</p>
+            <p class="timeline-desc">
+              Completed +2 level with Physics, Chemistry, Biology, and Mathematics. Developed a passion for the natural sciences and problem solving.
+            </p>
+            <div class="timeline-tags">
+              <span>Physics</span><span>Chemistry</span><span>Mathematics</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end education timeline -->
+
+      <!-- Experience Timeline -->
+      <div class="timeline hidden" id="tab-experience" role="tabpanel" aria-labelledby="btn-experience">
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2023 – Present</span>
+            <h3 class="timeline-title">Freelance Web Developer</h3>
+            <p class="timeline-org"><i class="fas fa-laptop" aria-hidden="true"></i> Self-employed</p>
+            <p class="timeline-desc">
+              Design and develop custom websites and web apps for local businesses and startups. Focus on responsive design, performance optimisation, and modern tech stacks.
+            </p>
+            <div class="timeline-tags">
+              <span>HTML/CSS/JS</span><span>React</span><span>Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2022 (3 months)</span>
+            <h3 class="timeline-title">Software Development Intern</h3>
+            <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> Tech Startup, Kathmandu</p>
+            <p class="timeline-desc">
+              Contributed to front-end feature development, bug triage, and code reviews. Built reusable UI components and improved page load performance by 30%.
+            </p>
+            <div class="timeline-tags">
+              <span>React</span><span>Git</span><span>SCSS</span><span>REST API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2022</span>
+            <h3 class="timeline-title">GIS Research Assistant</h3>
+            <p class="timeline-org"><i class="fas fa-map" aria-hidden="true"></i> Department of Mines & Geology, Nepal</p>
+            <p class="timeline-desc">
+              Assisted in processing satellite imagery and creating hazard-zone maps using GIS software. Automated data extraction workflows with Python scripts.
+            </p>
+            <div class="timeline-tags">
+              <span>GIS</span><span>Python</span><span>Remote Sensing</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end experience timeline -->
+    </div>
+  </section>
+
+  <!-- ========== SKILLS SECTION ========== -->
+  <section id="skills" class="section section-alt" aria-label="Skills">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">// skills</span>
+        <h2 class="section-title">Cosmic Arsenal</h2>
+        <p class="section-subtitle">Technologies and tools in my developer galaxy.</p>
+      </div>
+
+      <div class="skills-layout">
+
+        <!-- Skill Bars -->
+        <div class="skills-bars reveal-left">
+          <h3 class="skills-group-title">Core Skills</h3>
+
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-name">JavaScript / TypeScript</span>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="85"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-name">React / Next.js</span>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="80"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-name">HTML5 / CSS3</span>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="90"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-name">Python</span>
+              <span class="skill-pct">78%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="78"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-name">Node.js / Express</span>
+              <span class="skill-pct">72%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="72"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-name">SQL / MongoDB</span>
+              <span class="skill-pct">70%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="70"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-item">
+            <div class="skill-bar-header">
+              <span class="skill-name">GIS / Remote Sensing</span>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="75"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech orbit / icons -->
+        <div class="skills-orbit reveal-right" aria-label="Technology stack">
+          <div class="orbit-center">
+            <span>Tech<br/>Stack</span>
+          </div>
+
+          <!-- Orbit rings -->
+          <div class="orbit-ring orbit-ring-1">
+            <div class="orbit-item" style="--angle:0deg" title="React">
+              <i class="fab fa-react" aria-label="React"></i>
+            </div>
+            <div class="orbit-item" style="--angle:120deg" title="Node.js">
+              <i class="fab fa-node-js" aria-label="Node.js"></i>
+            </div>
+            <div class="orbit-item" style="--angle:240deg" title="Python">
+              <i class="fab fa-python" aria-label="Python"></i>
+            </div>
+          </div>
+
+          <div class="orbit-ring orbit-ring-2">
+            <div class="orbit-item" style="--angle:60deg" title="HTML5">
+              <i class="fab fa-html5" aria-label="HTML5"></i>
+            </div>
+            <div class="orbit-item" style="--angle:180deg" title="CSS3">
+              <i class="fab fa-css3-alt" aria-label="CSS3"></i>
+            </div>
+            <div class="orbit-item" style="--angle:300deg" title="JavaScript">
+              <i class="fab fa-js" aria-label="JavaScript"></i>
+            </div>
+          </div>
+
+          <div class="orbit-ring orbit-ring-3">
+            <div class="orbit-item" style="--angle:30deg" title="GitHub">
+              <i class="fab fa-github" aria-label="GitHub"></i>
+            </div>
+            <div class="orbit-item" style="--angle:150deg" title="Docker">
+              <i class="fab fa-docker" aria-label="Docker"></i>
+            </div>
+            <div class="orbit-item" style="--angle:270deg" title="Linux">
+              <i class="fab fa-linux" aria-label="Linux"></i>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end skills-layout -->
+
+      <!-- Tools grid -->
+      <div class="tools-grid reveal-up">
+        <div class="tool-chip"><i class="fas fa-code-branch"></i> Git</div>
+        <div class="tool-chip"><i class="fas fa-server"></i> REST APIs</div>
+        <div class="tool-chip"><i class="fas fa-terminal"></i> CLI / Bash</div>
+        <div class="tool-chip"><i class="fas fa-cube"></i> Docker</div>
+        <div class="tool-chip"><i class="fas fa-cloud"></i> Vercel / Netlify</div>
+        <div class="tool-chip"><i class="fas fa-map"></i> QGIS / ArcGIS</div>
+        <div class="tool-chip"><i class="fas fa-table"></i> Pandas / NumPy</div>
+        <div class="tool-chip"><i class="fas fa-palette"></i> Figma</div>
+        <div class="tool-chip"><i class="fas fa-database"></i> PostgreSQL</div>
+        <div class="tool-chip"><i class="fas fa-leaf"></i> MongoDB</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== CONTACT SECTION ========== -->
+  <section id="contact" class="section" aria-label="Contact">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">// contact</span>
+        <h2 class="section-title">Transmit a Signal</h2>
+        <p class="section-subtitle">Have a project in mind or just want to say hello? Send me a message across the cosmos.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Contact info -->
+        <div class="contact-info reveal-left">
+          <div class="contact-info-item">
+            <div class="contact-icon-wrap">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div>
+              <span class="contact-label">Email</span>
+              <a href="mailto:aadeshsangraula@email.com" class="contact-value">aadeshsangraula@email.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon-wrap">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            </div>
+            <div>
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Kathmandu, Nepal</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon-wrap">
+              <i class="fas fa-clock" aria-hidden="true"></i>
+            </div>
+            <div>
+              <span class="contact-label">Availability</span>
+              <span class="contact-value">Open to Opportunities</span>
+            </div>
+          </div>
+
+          <!-- Social links -->
+          <div class="social-links">
+            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Twitter profile">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <form id="contact-form" class="contact-form reveal-right" novalidate aria-label="Contact form">
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required autocomplete="name" />
+            <span class="form-error" id="name-error" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required autocomplete="email" />
+            <span class="form-error" id="email-error" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-input" placeholder="Project Inquiry" />
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="form-input form-textarea" placeholder="Hello Aadesh, I'd like to talk about..." required rows="5"></textarea>
+            <span class="form-error" id="message-error" role="alert"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+            <span class="btn-text"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message</span>
+            <span class="btn-loading hidden"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending…</span>
+          </button>
+          <p id="form-success" class="form-success hidden" role="status">
+            <i class="fas fa-check-circle" aria-hidden="true"></i> Message sent! I'll get back to you soon.
+          </p>
+        </form>
+
+      </div><!-- end contact-grid -->
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer" role="contentinfo">
+    <div class="footer-stars" aria-hidden="true">
+      <canvas id="footer-canvas"></canvas>
+    </div>
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>AS<span class="logo-bracket">/&gt;</span>
+      </div>
+      <p class="footer-copy">
+        &copy; <span id="footer-year"></span> Aadesh Sangraula. Crafted with
+        <i class="fas fa-heart" style="color:var(--pink)" aria-label="love"></i> &amp;
+        <i class="fas fa-star" style="color:var(--accent)" aria-label="stars"></i>
+      </p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="js/stars.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
